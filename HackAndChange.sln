@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackAndChangeApi", "HackAndChangeApi\HackAndChangeApi.csproj", "{DECDE9FC-7345-43F0-9B34-A70AB6A2E680}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DECDE9FC-7345-43F0-9B34-A70AB6A2E680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DECDE9FC-7345-43F0-9B34-A70AB6A2E680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DECDE9FC-7345-43F0-9B34-A70AB6A2E680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DECDE9FC-7345-43F0-9B34-A70AB6A2E680}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {60429FEC-BD61-4425-98CE-B72F41E5B73C}
+	EndGlobalSection
+EndGlobal
