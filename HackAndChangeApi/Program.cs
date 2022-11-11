@@ -1,3 +1,6 @@
+using HackAndChangeApi.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace HackAndChangeApi
 {
     public class Program
@@ -8,13 +11,19 @@ namespace HackAndChangeApi
 
             builder.Services.AddControllers();
 
+            var con = "Server=(localdb)\\mssqllocaldb;Database=HackAndChange;Trusted_Connection=True;";
+
+            builder.Services.AddDbContext<HackAndChangeContext>(options => options.UseSqlServer(con));
+            builder.Services.AddControllers();
+
             var app = builder.Build();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
+            app.UseRouting();
 
-            app.MapControllers();
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             app.Run();
         }

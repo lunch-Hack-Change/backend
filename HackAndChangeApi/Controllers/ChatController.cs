@@ -1,8 +1,6 @@
 ﻿using HackAndChangeApi.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace HackAndChangeApi.Controllers
 {
