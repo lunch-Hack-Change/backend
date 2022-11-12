@@ -18,7 +18,7 @@ namespace HackAndChangeApi
 
             var app = builder.Build();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseRouting();
 
