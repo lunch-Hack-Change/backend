@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HackAndChangeApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ChatController : ControllerBase
     {
@@ -16,6 +16,7 @@ namespace HackAndChangeApi.Controllers
         }
 
         [HttpPost]
+        [Route("Send")]
         public async Task<ActionResult<Message>> Send(Message message)
         {
             if (message == null)
@@ -26,13 +27,14 @@ namespace HackAndChangeApi.Controllers
         }
 
         [HttpGet]
+        [Route("History")]
         public async Task<ActionResult<IEnumerable<Message>>> History(int dialogId, int limit = 20)
         {
             if (limit < 1 || limit > 50)
                 throw new ArgumentException();
             return await db.Messages
                 .Where(m => m.DialogId == dialogId)
-                .Take(limit)
+                .Skip(limit)
                 .ToListAsync();
         }
 
@@ -44,6 +46,7 @@ namespace HackAndChangeApi.Controllers
         //}
 
         [HttpPost]
+        [Route("Update")]
         public async Task<ActionResult<Vidget>> Update(Vidget vidget)
         {
             if (vidget == null)

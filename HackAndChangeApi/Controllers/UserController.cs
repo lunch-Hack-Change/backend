@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HackAndChangeApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -16,6 +16,7 @@ namespace HackAndChangeApi.Controllers
         }
 
         [HttpGet]
+        [Route("Info")]
         public async Task<ActionResult<User>> Info(int userId)
         {
             var user = db.Users.Find(userId);
@@ -33,6 +34,7 @@ namespace HackAndChangeApi.Controllers
         }
 
         [HttpPost]
+        [Route("Info")]
         public async Task<ActionResult<User>> Info(User user)
         {
             if (user == null)
@@ -40,7 +42,7 @@ namespace HackAndChangeApi.Controllers
             if (!db.Users.Any(x => x.UserId == user.UserId))
                 return NotFound();
             db.Users.Update(user);
-            db.SaveChangesAsync();
+            await db.SaveChangesAsync();
             return Ok(User);
         }
     }

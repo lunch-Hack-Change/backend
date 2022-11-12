@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HackAndChangeApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -23,6 +23,7 @@ namespace HackAndChangeApi.Controllers
         }
 
         [HttpPost]
+        [Route("Auth")]
         public async Task<ActionResult<AuthUser>> Auth(string login, string password)
         {
 
@@ -40,6 +41,17 @@ namespace HackAndChangeApi.Controllers
             else
                 return NotFound();
             return Ok(authUser);
+        }
+
+        [HttpPost]
+        [Route("Verify")]
+        public async Task<ActionResult<AuthUser>> Verify(string jwtToken)
+        {
+            var authUser = db.AuthUsers.FirstOrDefault(x => x.JwtTocken == jwtToken);
+            if (jwtToken == null || authUser == null)
+                return NotFound();
+            var newAuthUser = new AuthUser { UserId = authUser.UserId, Role = authUser.Role };
+            return Ok(newAuthUser);
         }
 
         [HttpPost]
