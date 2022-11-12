@@ -11,16 +11,15 @@ namespace HackAndChangeApi
 
             builder.Services.AddControllers();
 
-            var con = "Server=(localdb)\\mssqllocaldb;Database=HackAndChange;Trusted_Connection=True;";
+            var con = "Data Source=HackAndChange.db";
 
-            builder.Services.AddDbContext<HackAndChangeContext>(options => options.UseSqlServer(con));
+            builder.Services.AddDbContext<HackAndChangeContext>(options => options.UseSqlite(con));
             builder.Services.AddControllers();
 
             var app = builder.Build();
 
-            //app.UseHttpsRedirection();
+            app.UseAuthorization();
 
-            //app.UseAuthorization();
             app.UseRouting();
 
             app.UseEndpoints(endpoints => endpoints.MapControllers());

@@ -26,9 +26,7 @@ namespace HackAndChangeApi.Controllers
             {
                 UserId = user.UserId,
                 Avatar = user.Avatar,
-                Surname = user.Surname,
-                Name = user.Name,
-                MiddleName = user.MiddleName
+                FullName = user.FullName,
             };
             return Ok(newUser);
         }

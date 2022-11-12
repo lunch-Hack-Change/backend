@@ -58,7 +58,7 @@ namespace HackAndChangeApi.Controllers
         [Route("Registration")]
         public async Task<ActionResult<User>> Registration(string login, string password)
         {
-            var user = new User { UserId = db.Users.Count() + 1, Login = login, Password = password};
+            var user = new User { UserId = db.Users.Count() + 1, Login = login, Password = password, Role = "Client"};
             db.Users.Add(user);
             await db.SaveChangesAsync();
             return Ok(User);
